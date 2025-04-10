@@ -24,7 +24,7 @@ const passport=require("passport");
 const LocalStrategy=require("passport-local");
 const User=require("./models/user.js");
 // Override util.isArray to use Array.isArray
-
+const MONGOURL=process.env.MONGO_URL;
 const listingsRouter=require("./routes/listing.js");
 const reviewsRouter=require("./routes/reviews.js");
 const usersRouter=require("./routes/user.js");
@@ -35,7 +35,7 @@ main()
     })
     .catch((err)=>
     {
-        console.log("Error connecting to MongoDB");
+        console.log("Error connecting to MongoDB",err);
     });
 
 // async function main(){
@@ -43,7 +43,7 @@ main()
 // }
 
 async function main(){
-    await mongoose.connect("mongodb+srv://simran_123:RzL3CiYgNhjvkZ7H@main-database.g5foy4n.mongodb.net/?retryWrites=true&w=majority&appName=main-database");
+    await mongoose.connect(MONGOURL);
 }
 
 app.set("view engine","ejs");
