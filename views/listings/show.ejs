@@ -31,11 +31,7 @@
    </div>
    <%} %>
    <div class="col-8 offset-3 mb-3">
-    <% if (curruser) { %>
-        localStorage.setItem("user", "<%= curruser.username %>");
-    <% } else { %>
-        localStorage.removeItem("user");
-    <% } %>
+   
     <%if(curruser){%>
         <hr>
     <h4>Leave a Review</h4>
